@@ -5,6 +5,10 @@
     --white-color: #e7e7e7;
 }
 
+.logofont {
+    font-family: 'Smooch Sans', sans-serif;
+}
+
 body {
     color:var(--dark-color);
 }
