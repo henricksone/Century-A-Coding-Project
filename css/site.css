@@ -5,6 +5,15 @@
     --white-color: #e7e7e7;
 }
 
+.odd {
+    /*a do nothing class*/
+    font-weight: 100;
+}
+
+.even {
+    font-weight: bold;
+}
+
 .logofont {
     font-family: 'Smooch Sans', sans-serif;
 }

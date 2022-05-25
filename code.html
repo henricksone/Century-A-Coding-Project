@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>Century: A Coding Project by Erik H</title>
+    <title>Century: A Coding Project by Henricksone</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -31,7 +31,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand logofont" href="#">
-            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Erik H Logo" height="24"> CENTURY</a>
+            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> CENTURY</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/henricksone/Century-A-Coding-Project">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
@@ -65,16 +65,79 @@
            <div class="row row-cols-1 row-cols-lg-2">
                <div class="col-lg-8">
                    <pre class="line-numbers"><code class="language-javascript">
-                    // Call Hello World
-                    function HelloWorld(){
-                        alert("hello World");
-                    }
+         
+// get the values from the Page
+// start or controler function
+function getValues(){
+    // get values from page
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+    
+    // parse to Inetgers
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+    
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        // call generateNumbers
+        let numbers = generateNumbers(startValue, endValue);   
+        // we call displayNumbers
+        displayNumbers(numbers);
+    } else {
+        alert("You must enter integers");
+    }
+}
+
+// generate numbers from startvalue to end value
+// logic functions
+function generateNumbers(sValue, eValue){
+    let numbers = [];
+    for (let index = sValue; index <= eValue; index++) {
+        numbers.push(index);
+    }
+    return numbers;
+}
+
+// display the numbers and mark EVEN as bold
+//display or view
+function displayNumbers(numbers){
+    let templateRows = "";
+    for (let index = 0; index < numbers.length; index++) {
+        let className = "even";
+        let number = numbers[index];
+        
+        if(number %2 == 0){className = "even";}
+        else{className = "odd";}
+        
+        templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>
+        }
+    document.getElementById("results").innerHTML = templateRows
+}
+
                    </code></pre>
                </div>
                <div class="col-lg-4">
-                   <p>The Code is structured in one function.</p>
-                   <h5>Hello World</h5>
-                   <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                    <p>A Summary of the Code and Functions</p>
+                    <h5>getValues()</h5>
+                    <p>This function behaves as the Main Function. It pulls the User values and calls the remaining 
+                    2 functions to perform logic and display.<br><br>
+                    1) // get values from page<br>
+                    It gets 2 values from the User and stores in startValue and endValue.<br><br>
+                    2) //pares to Integer<br>
+                    Converts any strings to integers.<br><br>
+                    3) validation check<br>
+                    If both user values pass validation, then proceed with generateNumbers() and displayNumbers()<br>
+                    otherwise display an alert asking for integers.</p>
+                    <h5>generateNumbers()</h5>
+                    <p>This function creates an empty array called 'numbers' and then runs a for loop from startValue
+                    to endValue, and adds the numbers to the array.  It returns the array back to getValues(). 
+                    </p>
+                    <h5>displayNumbers()</h5>
+                    <p>This function will generate HTML code to put into the Table. <br><br>
+                    1) The for loop will loop from startValue to endValue.<br>
+                    2) It will check each value if it is even by dividing by 2 and checking if the remainder is 0<br>
+                    3) It will assign a CSS defined Class.<br>
+                    4) Finally it generates a HTML row and appends it to the variable 'templateRows'
+                    5) 'templateRows' is then added to the HTML with the getElementsById method.</p>
                </div>
            </div>
        </div>
@@ -85,9 +148,9 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-3">
                 <div class="col d-flex align-items-center justify-content-center justify-content-lg-start order-last order-lg-first text-muted">
-                    <span class="text-muted">&copy;2022&nbsp;</span>Erik H</div>
+                    <span class="text-muted">&copy;2022&nbsp;</span>Henricksone</div>
                 <div class="col d-flex align-items-center justify-content-center">
-                    <img src="/img/EH-Logo-grayscale.png" alt="Erik H Logo" height="24"></div>
+                    <img src="/img/EH-Logo-grayscale.png" alt="Henricksone Logo" height="24"></div>
                 <div class="col d-flex align-items-center justify-content-center justify-content-lg-end">
                     <div class="row">
                         <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
